@@ -13,8 +13,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/cars")
 public class CarController {
-    @Autowired
-    private CarRepository repository;
+//    @Autowired
+//    private CarRepository repository;
 
     @GetMapping
     public @ResponseBody List<Car> getCars(){return repository.findAll();}
