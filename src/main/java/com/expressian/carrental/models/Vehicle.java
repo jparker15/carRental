@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Car {
+public class Vehicle {
 
     @Id
     @GeneratedValue
@@ -15,9 +15,9 @@ public class Car {
     private int year;
     private boolean isNew;
 
-    public Car(){}
+    public Vehicle(){}
 
-    public Car(Long id, String make, String model, int year, boolean isNew) {
+    public Vehicle(Long id, String make, String model, int year, boolean isNew) {
         this.id = id;
         this.make = make;
         this.model = model;
