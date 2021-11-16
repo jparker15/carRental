@@ -17,5 +17,5 @@ public class CarController {
 //    private CarRepository repository;
 
     @GetMapping
-    public @ResponseBody List<Car> getCars(){return repository.findAll();}
+    public @ResponseBody List<Car> getCars(){return repository.findAll();}-
 }
