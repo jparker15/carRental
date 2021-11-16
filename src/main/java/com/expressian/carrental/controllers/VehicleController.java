@@ -1,21 +1,27 @@
 package com.expressian.carrental.controllers;
 
-import com.expressian.carrental.models.Car;
-import com.expressian.carrental.repositories.CarRepository;
+import com.expressian.carrental.models.Vehicle;
+import com.expressian.carrental.repositories.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/cars")
-public class CarController {
-//    @Autowired
-//    private CarRepository repository;
+public class VehicleController {
+    @Autowired
+    private VehicleRepository repository;
 
     @GetMapping
-    public @ResponseBody List<Car> getCars(){return repository.findAll();}-
+    public @ResponseBody List<Vehicle> getCars(){return repository.findAll();}
+
+
+    @PostMapping
+    public ResponseEntity<Vehicle> createVehicle(@RequestBody Vehicle newVehicle){
+        return new ResponseEntity<>(repository.save(newVehicle), HttpStatus.CREATED);
+    }
 }
